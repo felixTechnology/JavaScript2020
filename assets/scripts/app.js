@@ -11,3 +11,13 @@
 
 //We assigning initial value 0 to aid in our calculation
 let currentResult = 0;
+
+//Mathematical operation that will output the result in a html div.
+/*1. Referring the currentResult both at the LEFT and right side of the operator.
+* 2. Adding 10 to the value inside the currentValue(which is 0) and passing the NEW VALUE into the variable on the left. meaning the current result (0) will be overwritten by (0+10)
+* 3. Note that outputResult function has been done in the vendor.js and called in app.js
+*  Note though we added a number for this calculation, it doesn't mean we only use numbers in JS
+*  */
+/*currentResult = currentResult + 10 * 3;*/
+currentResult = (currentResult + 10) * 3;
+outputResult(currentResult, '');
