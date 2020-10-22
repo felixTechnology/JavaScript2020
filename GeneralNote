@@ -35,3 +35,33 @@ It helps us make a webpage more reactive and skip that second response flow in s
 -to instead change the already loaded page and do something there
 
 4. Created (assets,info) folders and index.html file
+Assets folder can contain (images, scripts,styles) folders
+
+Script Folder ->apps.js
+
+Max showed an example where you can load a page within an existing Page without redirecting out of the main page
+Example:
+1. He grabbed a text within a paragraph tag which was to display as a link to another page
+Example
+<p> Kofi is going to school</p>
+
+2. He copied the text (Kofi is going to School)
+
+3. Pasted it in an anchor tag
+
+<a href="#" data-text="Kofi is going to School" class="info-modal></a>
+<a href="#" data-text="Weekly Meal for Kofi" class="info-modal></a>
+
+4. He added
+<script src="assets/scripts/app.js" defer></script>
+
+5. Now go back to the browser and reload. You will see the modal popup.
+
+Finally: In summary JS is a Dynamic,weakly-typed programming language. It is an Interpreted language
+That means it is compiled on the fly. It compiled before it runn and not compiled during development
+
+- It is a Hosted language and runs in different environment (EG: Browser)
+
+VIDEO 4:
+
+1. https://discord.com/invite/gxvEWGU 
