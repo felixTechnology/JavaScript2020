@@ -164,5 +164,31 @@ Code -> Preferences -> Keyboard Shortcut -> search :Format Shortcut
 Code-> Preference -> settings ->search : prettier
 
 
+GIT CONTROL
+https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
+
+GIT TUTORIAL (https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
+
+ 2. http://github.com/
+ 3. https://academind.com/learn/web-dev/github-the-basics/
+3. https://academind.com/learn/web-dev/github-the-basics/
 
 
+START PRACTICAL:
+
+1. Create JS file in Assets Folder - scripts folder(app.js)
+NOTE: There are couple of ways to import javaScript
+
+1st Way: Go to your html file ,in the head section you add script tags
+example:  <!--Tis is writing JS code directly in html file in the head section using script tag-->
+            <!--This is quite not advisable because as your JS Code get lengthy it will pose a challenge to maintain your script -->
+            <script>
+                alert("This works fine");
+            </script>
+
+2nd Way: Go into the head tag of html file and use the script tag and add your source attribute (src) and point to the location of your JS file
+         <script src="assets/scripts/app.js"> </script>
+
+NOTE: 1. To ensure the Html codes loads 1st before the JS , just locate the source of the js at the down body close tag of your html
+      2.  You need to also reference the code in the vendor fold because the code we will write in (app.js) will depend on it.
+      Always reference what you depend on before your custom js is referenced in the that sequence
