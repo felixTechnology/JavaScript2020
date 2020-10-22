@@ -1,0 +1,35 @@
+What is JavaScript
+
+1. Is a dynamic weakly typed programming language which is
+a.compiled at runtime.
+b. It can be executed as part of a webpage in a browser or directly
+on any machine (Host environment)
+
+2. Was created to make webpages more dynamic
+-change content on a page directly from inside the browser
+- It is called LiveScript
+- due to it Java style and popularity of Java xalled it JavaScript
+
+3. It is indepedent from Java and has nothing in common
+
+HOW Do Webpages Works ?
+
+-User visit a webpage
+- You use a browser to access your webpage
+- You use your laptop with a browser and enter your URL
+- When you visit the webpage of the URL AND the webpage get loaded,A request is sent to a SERVER where the HTML file is hosted
+- The server loads the webpage and sends it back to your browser in a form of RESPONSE.
+
+LET SAY THE WEBPAGE IS AN ECOMMERCE PAGE
+- Let say the loaded webspage is an online shop.
+- The user clicks a button to submit a Form (Example: To order some product)
+- This will trigger a new request which is sent by the browser to the server
+- A form submission is sent to the server and the server will handle the incoming request
+- maybe store some order data in a database and once it's done, it will reply back with a new RESPONSE
+-WITH A NEW PAGE, A NEW HTM DOCUMENT WHICH IS SENT BACK TO THE CLIENT.
+-MAYBE THE ORDER CONFIRMATION PAGE.
+-This is how we interract with the WEB
+
+3. JS helps us make this more reactive
+It helps us make a webpage more reactive and skip that second response flow in some circumstances.
+-to instead change the already loaded page and do something there
