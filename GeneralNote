@@ -61,7 +61,22 @@ Finally: In summary JS is a Dynamic,weakly-typed programming language. It is an 
 That means it is compiled on the fly. It compiled before it runn and not compiled during development
 
 - It is a Hosted language and runs in different environment (EG: Browser)
-
+-Most prominent use-case.Run Code in a browser
 VIDEO 4:
 
-1. https://discord.com/invite/gxvEWGU 
+1. https://discord.com/invite/gxvEWGU
+
+VIDEO 5
+How is JS Executed
+-Let say you run your JavaScript code
+-And you want it to have some effect on your webpage if we talk about the browser as our envirnment where we run the script
+- One important thing built into any environment when you want to run your JS
+
+1. Chrome is called V8
+
+2. SpinderMonkey - Firefox
+
+- The job of the engine (Parse the code (means reads & understand your code) -> Compile to Machine Code because machine code execute faster -> then execution is done)
+- Everthing is done on a single Thread (handles multiple tasks on one single thread)
+Learnt what (Interpreter means, execution means)
+
