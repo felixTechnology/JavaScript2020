@@ -78,5 +78,19 @@ How is JS Executed
 
 - The job of the engine (Parse the code (means reads & understand your code) -> Compile to Machine Code because machine code execute faster -> then execution is done)
 - Everthing is done on a single Thread (handles multiple tasks on one single thread)
-Learnt what (Interpreter means, execution means)
+Learnt what (Interpreter means, execution means)\
+
+VIDEO 6:
+Dynamic and Weakly Typed
+
+Dynamic, interpreted Programming Language
+-Not pre-compiled, instead parsed and compiled "on the fly" (ex: browser)
+- Code evaluated and executed at runtime
+- Code can change at runtime (ex: type of variable)-> Example if you have a variable storing text you can be allowed to switch dataType and store integer.
+
+Weakly Typed Programming Language means : When we work with data (text or number) you don't tell JS what form of data you are about to use.
+- Data types are assumed (assigned to variables) automatically
+-You dont define that some variable has to hold a certain value (e.g a number)
+- Data types are not set in stone but can change
+
 
