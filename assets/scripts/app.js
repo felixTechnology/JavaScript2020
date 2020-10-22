@@ -4,16 +4,10 @@
 //Calculator that works with two numbers
 
 //We need Variable and Constants
-/*Variable: I is a data container or storage where the stored data will be used to achieve a purpose. Or data container where it value can change
-   In JS the format is [let userName = 'Felix';
-                             userName = 'Ackuayi';
-                        ]
 
-     Constant: With this form of variable declaration the value in the variable is fixed and cannot be changed
-                  In JS the format is [const totalUsers = 15;
-                             userName =  20; //this will throw an error because it has been declared constant and cannot be changed
-                        ]
+/*1. One thing about calculator is about Result, so we 1st create variable (let result)
+* 2. Sometimes you can declare a variable without starting value (Example: let currentResult;)
+*  */
 
-
-*
-* */
+//We assigning initial value 0 to aid in our calculation
+let currentResult = 0;

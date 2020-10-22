@@ -192,3 +192,42 @@ example:  <!--Tis is writing JS code directly in html file in the head section u
 NOTE: 1. To ensure the Html codes loads 1st before the JS , just locate the source of the js at the down body close tag of your html
       2.  You need to also reference the code in the vendor fold because the code we will write in (app.js) will depend on it.
       Always reference what you depend on before your custom js is referenced in the that sequence
+
+
+Video 19:
+
+/*Variable: I is a data container or storage where the stored data will be used to achieve a purpose. Or data container where it value can change
+   In JS the format is [let userName = 'Felix';
+                             userName = 'Ackuayi';
+                        ]
+
+     Constant: With this form of variable declaration the value in the variable is fixed and cannot be changed
+                  In JS the format is [const totalUsers = 15;
+                             userName =  20; //this will throw an error because it has been declared constant and cannot be changed
+                        ]
+
+
+*
+* */
+
+Video 20
+
+/*1. One thing about calculator is about Result, so we 1st create variable (let result)
+
+   Naming conversion in JS
+   -It is case sensitive
+   -Camel casing ->Allowed (let userName)
+   - allowed -> ageGroup5
+   - allowed ->  $kindOfSpecial
+   - allowed -> _internalValue
+
+   NOT ALLOWED
+
+    let user_name (allowed but bad practice ,use Camel case instead)
+    let 21Players (starting digits not allowed)
+    let user-b (No special characters)
+    let let (Keywords not allowed)
+*
+* */
+
+
