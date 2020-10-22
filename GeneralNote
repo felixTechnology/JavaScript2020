@@ -33,3 +33,5 @@ LET SAY THE WEBPAGE IS AN ECOMMERCE PAGE
 3. JS helps us make this more reactive
 It helps us make a webpage more reactive and skip that second response flow in some circumstances.
 -to instead change the already loaded page and do something there
+
+4. Created (assets,info) folders and index.html file
