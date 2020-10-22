@@ -93,4 +93,76 @@ Weakly Typed Programming Language means : When we work with data (text or number
 -You dont define that some variable has to hold a certain value (e.g a number)
 - Data types are not set in stone but can change
 
+Video 7:
+JS run on a Host Environment
+
+- Can run on other environment
+a. Browser-side
+-JS was invented to create more dynamic websites by executing in the browser.
+- JS can manipulate the HTML code, CSS, send background HTTP request, etc
+- JS cant access local filessytem, interact with the OS.
+
+- Other (e.g. Server)
+a. Googles JS engine (V8) was extracted to run JS anywhere (Node.js)
+b. Node.js can be executed on any machine and is there often used to build web backends (server-side JS)
+C. nODE.JS CAN ACCESS THE LOCAL FILESYSTEM, interact with the OS. it can't Manipulate HTML or CSS
+
+
+OUR COURSE:
+
+Getting Started
+1.Base syntax (variables and functions)
+2. efficient development & debugging
+3. control structures
+4.Behind the Scenes of JS
+5. A closer Look at Functions
+6.DOM Baics
+7. Arrays and iterables
+
+
+Build a Strong Foundation
+1. Classes and OOP
+2. Constructor Functions and Prototypes
+3. More about DOM & Browser
+4. APIs
+5.EVENTS
+6.Functions Deep Dive
+7. Asychronous Code
+8. Background Http (Ajax)
+
+ADVANCED CONCEPTS
+1. 3rd Party Libaries
+2. JS modeules
+3. Tooling (Webpack, Babel..)
+4. Working with browser storage
+5.. Browser support
+6. Js fRAMEWORKS
+7. Meta-Programming
+8. Node.JS introduction
+9.Security
+10.Deployment
+11. Performance Optimizations and Memory Leaks
+
+
+SETTING UP YOUR ENVIRONMENT
+1.Visual Studio Code
+2. Google Chrome
+3. Core extensions and configuration
+
+1. Install VScode environment
+- Change the theme by going through
+. click on code ->preferences -> Color theme
+NB: In windows preferences is under FILE
+
+You can OFF Status Bar by (View->Appearance-> untick Show status Bar)
+
+- Add plugins and extension (View->extension)
+- material Icon Theme (extension : install)
+- Prettier (install it) It helps with code formatting
+
+Code -> Preferences -> Keyboard Shortcut -> search :Format Shortcut
+Code-> Preference -> settings ->search : prettier
+
+
+
 
