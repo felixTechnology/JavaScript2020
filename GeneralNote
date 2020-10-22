@@ -241,3 +241,30 @@ VIDEO 22:
 *   OutputResult, it calls a function from vendor.js which triggers some codes defined in the vendor.js and passes two argument into the function
 * */
 
+Video 23: DATA TYPES
+
+Numbers (2, -3, 22.956)
+String(Text) 'Hi', "Hi", `Hi`;
+
+
+VIDEO 24
+
+We cannot do this:
+const defaultResult = 0;
+let currentResult = defaultResult;
+
+defaultResult = (currentResult + 10) * 3/2 -1; //The code will break here because we trying to pass a value into a constant variable
+
+outputResult(currentResult, calculationDescription);
+
+We can rather do this:
+const defaultResult = 0;
+let currentResult = defaultResult;
+
+currentResult = (currentResult + 10) * 3/2 -1; //The code will not break here because we trying to pass a value into a  variable declared as let
+
+outputResult(currentResult, calculationDescription);
+
+
+
+
