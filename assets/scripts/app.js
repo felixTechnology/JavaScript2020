@@ -1,4 +1,30 @@
 
+/****************************************************Function***************************************************************/
+/*Function is a Code on Demand
+* 1. It is a language in construct which just have in js but also in other programme
+*  2. It is used by other languages
+*  3. with function we can define code that should run later and take such a function and attach it to the buttons in the html form
+*      to ensure that only when a button is pressed, the code run
+*   4. this allows us to write code which doesn't run immediately but which allows us to provide some#
+*       interaction to our website
+*     5. To only run some code when something happens , for example:
+*     6. you are not limited to only running a functions when a button is pressed
+*      7. You can run function based on variety of events or manually call them in your code whenever you need to do that
+*        8. whenever you have expression with curly braces you dont add semi colon
+* */
+
+
+function add(num1, num2){
+
+
+    /*alert('The result is ' + result);*/
+    alert(num1 + num2);
+}
+
+add(6,10);
+
+/****************************************************Function************************************************************/
+
 //alert("This works...");
 //Purpose is to be able to do a calculator by entering a Number and (add,sub,mult,divide) to the last number enter
 //Calculator that works with two numbers
@@ -134,20 +160,5 @@ outputResult(currentResult, errorMessage);
 
 /****************************************************Splitting across multiple Lines**********************************/
 
-
-/****************************************************Function***************************************************************/
-/*Function is a Code on Demand
-* 1. It is a language in construct which just have in js but also in other programme
-*  2. It is used by other languages
-*  3. with function we can define code that should run later and take such a function and attach it to the buttons in the html form
-*      to ensure that only when a button is pressed, the code run
-*   4. this allows us to write code which doesn't run immediately but which allows us to provide some#
-*       interaction to our website
-*     5. To only run some code when something happens , for example:
-*     6. you are not limited to only running a functions when a button is pressed
-*      7. You can run function based on variety of events or manually call them in your code whenever you need to do that
-*      
-* */
-/****************************************************Function************************************************************/
 
 
