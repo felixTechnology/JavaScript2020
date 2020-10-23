@@ -11,18 +11,59 @@
 *     6. you are not limited to only running a functions when a button is pressed
 *      7. You can run function based on variety of events or manually call them in your code whenever you need to do that
 *        8. whenever you have expression with curly braces you dont add semi colon
+*      9.How to define Function, How to declare variable, how to write readable code
+*      Good syntax:
+*       function greetUser(){alert(`Hi there`);}
+*      BAD SYNTAX:
+*        function greetUser(){
+*         alert(`Hi there`)
+*          ;}
+*
 * */
 
 
-function add(num1, num2){
+/*function add(num1, num2){
 
+     const result = num1 + num2;
 
-    /*alert('The result is ' + result);*/
-    alert(num1 + num2);
+    alert('The result is ' + result);
+    /!*alert(num1 + num2);*!/
 }
 
-add(6,10);
+add(6,10);*/
 
+
+function adds(fig1, fig2){
+
+    const results = fig1 + fig2;
+
+   return results;
+}
+
+const additionalResult = adds(6,10);
+
+outputResult(additionalResult,'');
+
+
+
+//There we can use the return value which we have passed into a variable constant and use it anywhere we want
+//Example
+
+currentResult = additionalResult;
+
+
+
+/*
+*  1. sometimes you have a Function which you want to use to outsource some code
+*  2. Maybe code which you need to run multiple times and therefore normally you would have to copy and paste it around which is not a great idea.
+* 3. And maybe as a Programmer you don't want to repeat yourself, so you want to write a code and then rather execute it multiple time by referring to the function
+*  4. So you could have a FUNCTION which is simply to outsource some functionality
+* 5. In this case as our example a function that adds two pieces of information (numbers) together
+* 6. So in that case you might not want to alert or do something inside the function, so in case you might not want to alert or do something inside of the function, you maybe just want
+*     return the result
+* 7.That is something you can do with the return KEYWORD which is built into JS
+* 8. Returning value always runs anytime we run the code
+* */
 /****************************************************Function************************************************************/
 
 //alert("This works...");
