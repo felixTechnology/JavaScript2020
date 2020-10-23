@@ -1,5 +1,8 @@
 
 /****************************************************Function***************************************************************/
+const defaultResult = 0;
+let currentResult = defaultResult;
+
 /*Function is a Code on Demand
 * 1. It is a language in construct which just have in js but also in other programme
 *  2. It is used by other languages
@@ -33,7 +36,7 @@
 add(6,10);*/
 
 
-function adds(fig1, fig2){
+/*function adds(fig1, fig2){
 
     const results = fig1 + fig2;
 
@@ -42,14 +45,26 @@ function adds(fig1, fig2){
 
 const additionalResult = adds(6,10);
 
-outputResult(additionalResult,'');
+outputResult(additionalResult,'');*/
 
+/******Global Variable******/
+function adds(fig1, fig2){
+
+    const results = fig1 + fig2;
+
+    return results;
+}
+
+const additionalResult = adds(6,10);
+let calculationDescriptions = `(${additionalResult} + 10 ) + 3/2-1`;
+
+/*outputResult(additionalResult,'');*/
+outputResult(additionalResult,calculationDescriptions);
 
 
 //There we can use the return value which we have passed into a variable constant and use it anywhere we want
 //Example
 
-currentResult = additionalResult;
 
 
 
@@ -174,8 +189,8 @@ outputResult(currentResult, calculationDescription);*/
 /****************************************************Using the ${} : This only works with back-stroke..It is also call javaScript template literal**********************************/
 
 /****************************************************Splitting across multiple Lines**********************************/
-const defaultResult = 0;
-let currentResult = defaultResult;
+/*const defaultResult = 0;
+let currentResult = defaultResult;*/
 
 currentResult = (currentResult + 10) * 3/2 -1; //The code will not break here because we trying to pass a value into a  variable declared as let
 
@@ -195,7 +210,7 @@ let errorMessagesze = "An error '" +
 
 let errorMessageszes = "An error \\"+
                          "occurred";   //printing single back slash as string
-outputResult(currentResult, errorMessage);
+/*outputResult(currentResult, errorMessage);*/
 
 
 
