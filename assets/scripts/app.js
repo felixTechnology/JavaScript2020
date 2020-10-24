@@ -80,7 +80,7 @@ outputResult(additionalResult,calculationDescriptions);
 *  10. the (.value) will give you what the user entered
 * */
 
-function adds() {
+/*function adds() {
 
     currentResult = currentResult + userInput.value;
     outputResult(currentResult,'');
@@ -89,7 +89,7 @@ function adds() {
 }
 
 //we intstructing the browser if the addBtn is clicked call the add function
-addBtn.addEventListener('click', adds)
+addBtn.addEventListener('click', adds)*/
 /*const additionalResult = adds(6,10);
 let calculationDescriptions = `(${additionalResult} + 10 ) + 3/2-1`;*/
 
@@ -117,6 +117,35 @@ let calculationDescriptions = `(${additionalResult} + 10 ) + 3/2-1`;*/
 * 8. Returning value always runs anytime we run the code
 * */
 /****************************************************Function************************************************************/
+
+/****************************************************Converting DataType************************************************************/
+
+/*
+* 1. An input element receives values in string format (even when you enter primitive integers)
+* 2. The input element from HTML doesn't make any assumption on what value is coming from it.
+*
+* */
+
+function convert() {
+
+    //Here JS is combining Number variable to A string variable from input element
+    //Now let consider how to tell JS we have a Number & A Number therefore a calculation has to be done
+    //We use either a. parseInt OR b.parseFloat TO
+    //We can also use + + in place of parseInt or parseFloat Example:  currentResult = currentResult + + userInput.value; (but not advisable)
+    //If you want to add A number to STRING you do (.toString) Example: currentResult = currentResult.toString() + + userInput.value;
+   /* currentResult = currentResult + userInput.value;*/
+    currentResult = currentResult + + userInput.value;
+    outputResult(currentResult,'');
+
+
+}
+
+//we intstructing the browser if the addBtn is clicked call the add function
+addBtn.addEventListener('click', convert)
+/****************************************************Converting DataType************************************************************/
+
+
+
 
 //alert("This works...");
 //Purpose is to be able to do a calculator by entering a Number and (add,sub,mult,divide) to the last number enter
