@@ -1,7 +1,7 @@
 
 /****************************************************Function***************************************************************/
-const defaultResult = 0;
-let currentResult = defaultResult;
+/*const defaultResult = 0;
+let currentResult = defaultResult;*/
 
 /*Function is a Code on Demand
 * 1. It is a language in construct which just have in js but also in other programme
@@ -145,16 +145,30 @@ addBtn.addEventListener('click', convert)*/
 /****************************************************Converting DataType************************************************************/
 
 /****************************************************SPLITTING CODE INTO FUNCTION************************************************************/
-function getUserInput() {
+/*function getUserNumberInput() {
   return parseInt(userInput.value);
 }
 
+function createAndWriteOutput(operator,resultBeforeCalc,calcNumber){
+  /!*  const calcDescription = `${currentResult} + ${enteredNumber}`*!/
+
+    //This is an output text i'm generating here
+    const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`
+    outputResult(currentResult,calcDescription);//currentResult can be called because it's a global variable which get chang. And calcDescription which is constant
+
+
+}
+
 function split() {
-    const enteredNumber = getUserInput();
-    /*const enteredNumber = parseInt(userInput.value)*/
-    const calcDescription = `${currentResult} + ${enteredNumber}`
-    currentResult = currentResult + + enteredNumber;
-    outputResult(currentResult,calcDescription);
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult; // this is current result before it's changed
+    /!*const enteredNumber = parseInt(userInput.value)*!/
+    /!*const calcDescription = `${currentResult} + ${enteredNumber}`*!/
+    currentResult = currentResult + enteredNumber; //this is current result before we run it
+   /!* currentResult = currentResult + parseInt(enteredNumber.value);*!/
+    /!*outputResult(currentResult,calcDescription);*!/
+
+    createAndWriteOutput('+', initialResult, enteredNumber )
 
 
 }
@@ -162,8 +176,56 @@ function split() {
 //we intstructing the browser if the addBtn is clicked call the add function
 addBtn.addEventListener('click', split)
 
-/****************************************************SPLITTING CODE INTO FUNCTION************************************************************/
+/!****************************************************SPLITTING CODE INTO FUNCTION************************************************************!/
 
+/!****************************************************Connecting all buttons to Functions***********************************************************!/
+/!*
+* ensure all the buttons are connecting
+* *!/
+
+function subtract(){
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult; // this is current result before it's changed
+    /!*const enteredNumber = parseInt(userInput.value)*!/
+    /!*const calcDescription = `${currentResult} + ${enteredNumber}`*!/
+    currentResult = currentResult - enteredNumber; //this is current result before we run it
+    /!* currentResult = currentResult + parseInt(enteredNumber.value);*!/
+    /!*outputResult(currentResult,calcDescription);*!/
+
+    createAndWriteOutput('-', initialResult, enteredNumber )
+}
+subtractBtn.addEventListener('click', subtract);
+
+function multiply(){
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult; // this is current result before it's changed
+    /!*const enteredNumber = parseInt(userInput.value)*!/
+    /!*const calcDescription = `${currentResult} + ${enteredNumber}`*!/
+    currentResult = currentResult * enteredNumber; //this is current result before we run it
+    /!* currentResult = currentResult + parseInt(enteredNumber.value);*!/
+    /!*outputResult(currentResult,calcDescription);*!/
+
+    createAndWriteOutput('*', initialResult, enteredNumber )
+
+}
+
+multiplyBtn.addEventListener('click', multiply)
+
+function divide(){
+
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult; // this is current result before it's changed
+    /!*const enteredNumber = parseInt(userInput.value)*!/
+    /!*const calcDescription = `${currentResult} + ${enteredNumber}`*!/
+    currentResult = currentResult / enteredNumber; //this is current result before we run it
+    /!* currentResult = currentResult + parseInt(enteredNumber.value);*!/
+    /!*outputResult(currentResult,calcDescription);*!/
+
+    createAndWriteOutput('/', initialResult, enteredNumber )
+}
+
+divideBtn.addEventListener('click', divide)*/
+/****************************************************Connecting all buttons to Functions***********************************************************/
 
 //alert("This works...");
 //Purpose is to be able to do a calculator by entering a Number and (add,sub,mult,divide) to the last number enter
@@ -239,7 +301,7 @@ let currentResult = defaultResult;
 
  currentResult = (currentResult + 10) * 3/2 -1; //The code will not break here because we trying to pass a value into a  variable declared as let
 
-let calculationDescription = '(' + defaultResult + ' + 10) * 3/2 -1';
+let calculationDescription = '(' + defaultResult + ' + 10) * 3/2 -1)';
 outputResult(currentResult, calculationDescription);
 */
 
@@ -278,12 +340,12 @@ let currentResult = defaultResult;*/
 
 /*currentResult = (currentResult + 10) * 3/2 -1; *///The code will not break here because we trying to pass a value into a  variable declared as let
 
-let calculationDescription = `(  ${defaultResult}   + 10) * 3/2 -1`;
+/*let calculationDescription = `(  ${defaultResult}   + 10) * 3/2 -1`;*/
 
-let errorMessage = 'An error '+
-                   'occurred';   //adding line break
+/*let errorMessage = 'An error '+
+                   'occurred';   //adding line break*/
 
-let errorMessages = 'An error \n'+
+/*let errorMessages = 'An error \n'+
     'occurred';   //adding line break when code contains both numbers and special characters.
 
 let errorMessagesz = 'An error \''+
@@ -293,7 +355,7 @@ let errorMessagesze = "An error '" +
                         "occurred";   //adding back slash when you want to print single quote
 
 let errorMessageszes = "An error \\"+
-                         "occurred";   //printing single back slash as string
+                         "occurred";   //printing single back slash as string*/
 /*outputResult(currentResult, errorMessage);*/
 
 
