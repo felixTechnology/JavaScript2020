@@ -22,7 +22,7 @@ alert(divide);
 
 /******************************************INSTRUCTOR SOLUTION*************************************/
 
-const userInput = 20;
+/*const userInput = 20;
 let results;
 
 results = 18 + userInput;
@@ -32,5 +32,5 @@ results = results * 2;
 results = results / 4;
 
 alert(results);
-alert(userInput);
+alert(userInput);*/
 /*******************************************i**************************************/

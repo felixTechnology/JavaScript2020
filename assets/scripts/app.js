@@ -48,6 +48,7 @@ const additionalResult = adds(6,10);
 outputResult(additionalResult,'');*/
 
 /******Global Variable******/
+/*
 function adds(fig1, fig2){
 
     const results = fig1 + fig2;
@@ -58,8 +59,44 @@ function adds(fig1, fig2){
 const additionalResult = adds(6,10);
 let calculationDescriptions = `(${additionalResult} + 10 ) + 3/2-1`;
 
-/*outputResult(additionalResult,'');*/
+/!*outputResult(additionalResult,'');*!/
 outputResult(additionalResult,calculationDescriptions);
+*/
+/******Global Variable******/
+
+/******Executing Functions Indirectly******/
+
+/*
+*  1. Goal is to make sure if we click on the (+) BUTTON WE TAKE whatever the user enters in the input field
+*  2. We use that in the add function and generate new result which we will output
+*  3. For that we need to add an event Listener to this button
+*  4. We will make a reference in the vue.js .
+*  5. We make reference to the addBtn which is a pointer at the plus button
+*  6. In the app.js we can use tha to replace a code with the addBtn and add a dot
+*  7. and add addEventListener(), this is an inbuilt built into the browser which is tied to this button
+*  8. The eventListeners takes two paramaters, 1st parameter take string.We use string because the first parameter wont do any dynamic thing
+*  9. The 2nd parameter should be a function.Because that will tell the browser that which JS code function should executed If the button is clicked
+*  10. We point the function by just writing the name of the function. The 2nd parameter will instruct the browser to call that function
+*  10. the (.value) will give you what the user entered
+* */
+
+function adds() {
+
+    currentResult = currentResult + userInput.value;
+    outputResult(currentResult,'');
+
+
+}
+
+//we intstructing the browser if the addBtn is clicked call the add function
+addBtn.addEventListener('click', adds)
+/*const additionalResult = adds(6,10);
+let calculationDescriptions = `(${additionalResult} + 10 ) + 3/2-1`;*/
+
+/*outputResult(additionalResult,'');*/
+
+
+/******Executing Functions Indirectly******/
 
 
 //There we can use the return value which we have passed into a variable constant and use it anywhere we want
@@ -192,7 +229,7 @@ outputResult(currentResult, calculationDescription);*/
 /*const defaultResult = 0;
 let currentResult = defaultResult;*/
 
-currentResult = (currentResult + 10) * 3/2 -1; //The code will not break here because we trying to pass a value into a  variable declared as let
+/*currentResult = (currentResult + 10) * 3/2 -1; *///The code will not break here because we trying to pass a value into a  variable declared as let
 
 let calculationDescription = `(  ${defaultResult}   + 10) * 3/2 -1`;
 
