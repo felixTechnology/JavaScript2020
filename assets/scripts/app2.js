@@ -22,6 +22,26 @@ function createAndWriteOutput(operator,resultBeforeCalc,calcNumber){
 
 }
 
+function writeToLog(operationIdentifier,prevResult,operateNumber,newResult){
+
+    const logEntry = { //adding key and values to the object
+
+        operation: operationIdentifier, //This is a key and value. You can have Key-value or object-object.This is kind of an IDENTIFY. That tell
+                          //If you this the log this should identify it as the operation for Addition
+        prevResult: prevResult, // This is your result before the operation
+        number: operateNumber, //This is the number we added to the previous number
+        result: newResult    //This could be the total or current result of the operation
+    };
+
+    logEntries.push(logEntry);
+    /*logEntries.push(enteredNumber);*/ //push function pushes new elements to the list of array elements;
+
+   /* console.log(logEntry.operation);*///Accessing data on the object.
+    //console.log(logEntries);//if you wan to access specific element in the array list you do this //console.log(logEntries[0])
+    console.log(logEntries);
+
+}
+
 
 function split() {
     const enteredNumber = getUserNumberInput();
@@ -34,20 +54,22 @@ function split() {
     /*outputResult(currentResult,calcDescription);*/
 
     createAndWriteOutput('+', initialResult, enteredNumber )
-    const logEntry = { //adding key and values to the object
+    /*const logEntry = { //adding key and values to the object
 
         operation: 'ADD', //This is a key and value. You can have Key-value or object-object.This is kind of an IDENTIFY. That tell
                           //If you this the log this should identify it as the operation for Addition
         prevResult: initialResult, // This is your result before the operation
         number: enteredNumber, //This is the number we added to the previous number
         result: currentResult   //This could be the total or current result of the operation
-    };
-    logEntries.push(logEntry);
-    /*logEntries.push(enteredNumber);*/ //push function pushes new elements to the list of array elements;
+    };*/
+   /* logEntries.push(logEntry);
+    /!*logEntries.push(enteredNumber);*!/ //push function pushes new elements to the list of array elements;
 
     console.log(logEntry.operation);//Accessing data on the object.
     //console.log(logEntries);//if you wan to access specific element in the array list you do this //console.log(logEntries[0])
-    console.log(logEntries);
+    console.log(logEntries);*/
+
+    writeToLog('ADD',initialResult,enteredNumber,currentResult);
 
 }
 
@@ -72,6 +94,8 @@ function subtract(){
     /*outputResult(currentResult,calcDescription);*/
 
     createAndWriteOutput('-', initialResult, enteredNumber )
+
+    writeToLog('SUBTRACT',initialResult,enteredNumber,currentResult);
 }
 subtractBtn.addEventListener('click', subtract);
 
@@ -86,6 +110,8 @@ function multiply(){
     /*outputResult(currentResult,calcDescription);*/
 
     createAndWriteOutput('*', initialResult, enteredNumber )
+
+    writeToLog('MULTIPLY',initialResult,enteredNumber,currentResult);
 
 }
 
@@ -102,7 +128,9 @@ function divide(){
     /* currentResult = currentResult + parseInt(enteredNumber.value);*/
     /*outputResult(currentResult,calcDescription);*/
 
-    createAndWriteOutput('/', initialResult, enteredNumber )
+    createAndWriteOutput('/', initialResult, enteredNumber );
+
+    writeToLog('DIVIDE',initialResult,enteredNumber,currentResult);
 }
 
 divideBtn.addEventListener('click', divide)
@@ -143,4 +171,14 @@ ARRAY
 * 6.You want to access one of the properties as it is called.(EX: console.log(logEntry.Operation);
 *
 *
+* */
+
+/*
+* Adding a Reusable Function That uses Object
+*
+* 1. It will be nice generating same log entries for subtraction, multiplication and so on
+* 2. We can grab that code object
+* 3. And copy and paste in other functions but that will be duplicate of code.
+* 4.Identify what is comMon in all the code (and we have what we call CREATE & WRITE OUTPUT)
+* 5. Create a function for creating a Log.
 * */
