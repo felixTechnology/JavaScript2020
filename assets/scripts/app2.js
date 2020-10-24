@@ -45,6 +45,7 @@ function split() {
     logEntries.push(logEntry);
     /*logEntries.push(enteredNumber);*/ //push function pushes new elements to the list of array elements;
 
+    console.log(logEntry.operation);//Accessing data on the object.
     //console.log(logEntries);//if you wan to access specific element in the array list you do this //console.log(logEntries[0])
     console.log(logEntries);
 
@@ -129,11 +130,17 @@ ARRAY
 * 5. And just attach the info, whether that was an addition or a subtraction operation
 * 6. This is great scenerio of objects because we will have to mange multiple peices of data that are related
 * 7. This pieces of data in turn will be managed as a list of these peices of data
-*
-*
-*
-*
-*
+
+* */
+
+/*
+* Accessing Object Data
+* 1. Now we are adding our log enteries to the log entries array which is great
+* 2. Let say for some reason, maybe another part of your code need some data from your log entry
+* 3. You may not need the full object but you need the operation
+* 4. You log it on the operation you want. This example will show you how to access data on objects and you this with a notation which is already
+* 5. You use the name of the object, logEntry then you use dot notation.The dot tells JS on the object infront of the dot,
+* 6.You want to access one of the properties as it is called.(EX: console.log(logEntry.Operation);
 *
 *
 * */
