@@ -126,14 +126,14 @@ let calculationDescriptions = `(${additionalResult} + 10 ) + 3/2-1`;*/
 *
 * */
 
-function convert() {
+/*function convert() {
 
     //Here JS is combining Number variable to A string variable from input element
     //Now let consider how to tell JS we have a Number & A Number therefore a calculation has to be done
     //We use either a. parseInt OR b.parseFloat TO
     //We can also use + + in place of parseInt or parseFloat Example:  currentResult = currentResult + + userInput.value; (but not advisable)
     //If you want to add A number to STRING you do (.toString) Example: currentResult = currentResult.toString() + + userInput.value;
-   /* currentResult = currentResult + userInput.value;*/
+   /!* currentResult = currentResult + userInput.value;*!/
     currentResult = currentResult + + userInput.value;
     outputResult(currentResult,'');
 
@@ -141,10 +141,28 @@ function convert() {
 }
 
 //we intstructing the browser if the addBtn is clicked call the add function
-addBtn.addEventListener('click', convert)
+addBtn.addEventListener('click', convert)*/
 /****************************************************Converting DataType************************************************************/
 
+/****************************************************SPLITTING CODE INTO FUNCTION************************************************************/
+function getUserInput() {
+  return parseInt(userInput.value);
+}
 
+function split() {
+    const enteredNumber = getUserInput();
+    /*const enteredNumber = parseInt(userInput.value)*/
+    const calcDescription = `${currentResult} + ${enteredNumber}`
+    currentResult = currentResult + + enteredNumber;
+    outputResult(currentResult,calcDescription);
+
+
+}
+
+//we intstructing the browser if the addBtn is clicked call the add function
+addBtn.addEventListener('click', split)
+
+/****************************************************SPLITTING CODE INTO FUNCTION************************************************************/
 
 
 //alert("This works...");
