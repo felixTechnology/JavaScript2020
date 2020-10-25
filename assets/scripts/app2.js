@@ -22,6 +22,8 @@ function createAndWriteOutput(operator,resultBeforeCalc,calcNumber){
 
 }
 
+
+
 function writeToLog(operationIdentifier,prevResult,operateNumber,newResult){
 
     const logEntry = { //adding key and values to the object
@@ -43,33 +45,103 @@ function writeToLog(operationIdentifier,prevResult,operateNumber,newResult){
 }
 
 
-function split() {
-    const enteredNumber = getUserNumberInput();
+/*******************************************************************************/
+function calculateResult(calculationType) {
+
+    if (calculationType !=='ADD' && calculationType !== 'SUBTRACT' &&
+        calculationType !== 'MULTIPLY' && calculationType !=='DIVIDE')
+    {
+        return; //this means if the conditions is not what we support below ,then return right away. Dont execute
+    }
+
+
+    /*if (calculationType || 'ADD' || calculationType || 'SUBTRACT' &&
+        calculationType || 'MULTIPLY' && calculationType || 'DIVIDE')
+    {*/
+        const enteredNumber = getUserNumberInput();
+        const initialResult = currentResult;
+        let mathOperator;
+        if(calculationType === 'ADD'){ //we perform calculation based on the calculation type we getting
+            currentResult += enteredNumber;
+            mathOperator = '+';
+        }else if(calculationType === 'SUBTRACT'){
+            currentResult -= enteredNumber;
+            mathOperator = '-';
+        }else if(calculationType === 'MULTIPLY'){
+            currentResult *= enteredNumber;
+            mathOperator = '*';
+
+        }else{
+            currentResult /= enteredNumber;
+            mathOperator = '/';
+
+        }
+
+        createAndWriteOutput(mathOperator, initialResult, enteredNumber )
+
+
+        writeToLog(calculationType,initialResult,enteredNumber,currentResult);
+    //}
+    /*const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    let mathOperator;
+    if(calculationType === 'ADD'){ //we perform calculation based on the calculation type we getting
+        currentResult += enteredNumber;
+        mathOperator = '+';
+    }else if(calculationType === 'SUBTRACT'){
+        currentResult -= enteredNumber;
+        mathOperator = '-';
+    }else if(calculationType === 'MULTIPLY'){
+        currentResult *= enteredNumber;
+        mathOperator = '*';
+
+    }else{
+        currentResult /= enteredNumber;
+        mathOperator = '/';
+
+    }
+
+    createAndWriteOutput(mathOperator, initialResult, enteredNumber )
+
+
+    writeToLog(calculationType,initialResult,enteredNumber,currentResult);*/
+}
+
+/*******************************************************************************/
+
+
+    function split() {
+        //When we pass in Add it will meet the IF STATEMENT as TRUE and will run the first condition block of the function called
+        calculateResult('ADD'); //This was introduced in the IF STATEMENT AND THAT MADE ME COMMENT THE BELOW
+    /*const enteredNumber = getUserNumberInput();
     const initialResult = currentResult; // this is current result before it's changed
-    /*const enteredNumber = parseInt(userInput.value)*/
-    /*const calcDescription = `${currentResult} + ${enteredNumber}`*/
+    /!*const enteredNumber = parseInt(userInput.value)*!/
+    /!*const calcDescription = `${currentResult} + ${enteredNumber}`*!/
     currentResult += enteredNumber;
-    /*currentResult = currentResult + enteredNumber;*/ //this is current result before we run it
-    /* currentResult = currentResult + parseInt(enteredNumber.value);*/
-    /*outputResult(currentResult,calcDescription);*/
+    /!*currentResult = currentResult + enteredNumber;*!/ //this is current result before we run it
+    /!* currentResult = currentResult + parseInt(enteredNumber.value);*!/
+    /!*outputResult(currentResult,calcDescription);*!/
 
     createAndWriteOutput('+', initialResult, enteredNumber )
-    /*const logEntry = { //adding key and values to the object
+    /!*const logEntry = { //adding key and values to the object
 
         operation: 'ADD', //This is a key and value. You can have Key-value or object-object.This is kind of an IDENTIFY. That tell
                           //If you this the log this should identify it as the operation for Addition
         prevResult: initialResult, // This is your result before the operation
         number: enteredNumber, //This is the number we added to the previous number
         result: currentResult   //This could be the total or current result of the operation
-    };*/
-   /* logEntries.push(logEntry);
+    };*!/
+   /!* logEntries.push(logEntry);
     /!*logEntries.push(enteredNumber);*!/ //push function pushes new elements to the list of array elements;
 
     console.log(logEntry.operation);//Accessing data on the object.
     //console.log(logEntries);//if you wan to access specific element in the array list you do this //console.log(logEntries[0])
-    console.log(logEntries);*/
+    console.log(logEntries);*!/
 
-    writeToLog('ADD',initialResult,enteredNumber,currentResult);
+    createAndWriteOutput('+', initialResult, enteredNumber )
+
+
+    writeToLog('ADD',initialResult,enteredNumber,currentResult);*/
 
 }
 
@@ -83,35 +155,38 @@ addBtn.addEventListener('click', split)
 * ensure all the buttons are connecting
 * */
 
-function subtract(){
-    const enteredNumber = getUserNumberInput();
+function subtract(){calculateResult('Subtract');
+
+    calculateResult('SUBTRACT');
+    /*const enteredNumber = getUserNumberInput();
     const initialResult = currentResult; // this is current result before it's changed
-    /*const enteredNumber = parseInt(userInput.value)*/
-    /*const calcDescription = `${currentResult} + ${enteredNumber}`*/
+    /!*const enteredNumber = parseInt(userInput.value)*!/
+    /!*const calcDescription = `${currentResult} + ${enteredNumber}`*!/
     currentResult -= enteredNumber;
-    /*currentResult = currentResult - enteredNumber; *///this is current result before we run it
-    /* currentResult = currentResult + parseInt(enteredNumber.value);*/
-    /*outputResult(currentResult,calcDescription);*/
+    /!*currentResult = currentResult - enteredNumber; *!///this is current result before we run it
+    /!* currentResult = currentResult + parseInt(enteredNumber.value);*!/
+    /!*outputResult(currentResult,calcDescription);*!/
 
     createAndWriteOutput('-', initialResult, enteredNumber )
 
-    writeToLog('SUBTRACT',initialResult,enteredNumber,currentResult);
+    writeToLog('SUBTRACT',initialResult,enteredNumber,currentResult);*/
 }
 subtractBtn.addEventListener('click', subtract);
 
 function multiply(){
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult; // this is current result before it's changed
-    /*const enteredNumber = parseInt(userInput.value)*/
-    /*const calcDescription = `${currentResult} + ${enteredNumber}`*/
-    currentResult *= enteredNumber;
-    /* currentResult = currentResult * enteredNumber;*/ //this is current result before we run it
-    /* currentResult = currentResult + parseInt(enteredNumber.value);*/
-    /*outputResult(currentResult,calcDescription);*/
+    calculateResult('MULTIPLY');
+    /* const enteredNumber = getUserNumberInput();
+     const initialResult = currentResult; // this is current result before it's changed
+     /!*const enteredNumber = parseInt(userInput.value)*!/
+     /!*const calcDescription = `${currentResult} + ${enteredNumber}`*!/
+     currentResult *= enteredNumber;
+     /!* currentResult = currentResult * enteredNumber;*!/ //this is current result before we run it
+     /!* currentResult = currentResult + parseInt(enteredNumber.value);*!/
+     /!*outputResult(currentResult,calcDescription);*!/
 
-    createAndWriteOutput('*', initialResult, enteredNumber )
+     createAndWriteOutput('*', initialResult, enteredNumber )
 
-    writeToLog('MULTIPLY',initialResult,enteredNumber,currentResult);
+     writeToLog('MULTIPLY',initialResult,enteredNumber,currentResult);*/
 
 }
 
@@ -119,18 +194,19 @@ multiplyBtn.addEventListener('click', multiply)
 
 function divide(){
 
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult; // this is current result before it's changed
-    /*const enteredNumber = parseInt(userInput.value)*/
-    /*const calcDescription = `${currentResult} + ${enteredNumber}`*/
-    currentResult /= enteredNumber;
-    /*currentResult = currentResult / enteredNumber; *///this is current result before we run it
-    /* currentResult = currentResult + parseInt(enteredNumber.value);*/
-    /*outputResult(currentResult,calcDescription);*/
+    calculateResult('DIVIDE');
+    /*    const enteredNumber = getUserNumberInput();
+        const initialResult = currentResult; // this is current result before it's changed
+        /!*const enteredNumber = parseInt(userInput.value)*!/
+        /!*const calcDescription = `${currentResult} + ${enteredNumber}`*!/
+        currentResult /= enteredNumber;
+        /!*currentResult = currentResult / enteredNumber; *!///this is current result before we run it
+        /!* currentResult = currentResult + parseInt(enteredNumber.value);*!/
+        /!*outputResult(currentResult,calcDescription);*!/
 
-    createAndWriteOutput('/', initialResult, enteredNumber );
+        createAndWriteOutput('/', initialResult, enteredNumber );
 
-    writeToLog('DIVIDE',initialResult,enteredNumber,currentResult);
+        writeToLog('DIVIDE',initialResult,enteredNumber,currentResult);*/
 }
 
 divideBtn.addEventListener('click', divide)
@@ -181,4 +257,109 @@ ARRAY
 * 3. And copy and paste in other functions but that will be duplicate of code.
 * 4.Identify what is comMon in all the code (and we have what we call CREATE & WRITE OUTPUT)
 * 5. Create a function for creating a Log.
+* */
+
+/*
+*  Importing script correctly with Defer and async
+*
+* defer tells the browser to download your js script tag located in the html head,rightaway,
+* 2. But it should not block passing the HTML so it will continuing parsing the html till everything is passed before running the JS
+* 3.It only download the JS once the html finishes EXAMPLE: <script src="assets/scripts/app2.js" defer> </script>
+*
+* Sometime you have script which you will want to load/execute early because maybe they dont
+* to execute early.They do not rely on the html.
+* This is achieved using the (async) instead of defer. It tells the browser to load the script as early as possible.The browser is not block but continue parsing
+* the html. The difference is the async start downloading. This is not the correct solution because the script start executing before loading the html.
+*
+*
+* */
+
+/*
+* 1ST MODULE SUMMARY
+* 1. Learnt about basic of JS
+* 2. Learnt about variables and constants which you create with (let and (const),
+* 3. Learnt about the differences between declaring a variable or constant with (let) or (const)
+* 4. Initialising by assigning a value of with (=)
+* 5. Learnt about operators like the (=+ to assign a value to a variable or the plus and minus, multiplication,division,etc
+* 6. Learnt about functions which allow you to define code that can execute multiple time whenever you call the function
+* 7. How to manage,parse data into function, write proper code,how to use the right syntax,how to work with number and strings
+* 8.how to work with objects and how to work with arrays which are list of data
+* 9.How to import of string properly to optimize your page loading
+* 6.
+* */
+
+
+/*
+*
+* Debugging and Efficiently developing
+* Mastering JS Development
+*
+* 1. How to write code efficiently by getting lots about tools available
+*
+* 2.Find Help
+* 3.
+*
+*
+*
+* */
+
+/*
+* CONTROL STRUCTURES
+* This means that when you are writing code, you don't always want to execute the same code
+*  top-to-button.
+* 2. Sometimes you have some condition that should be met for some code to be executed and
+* 3. And execute some other code if the condition is not met or you need to repeat some code execution and
+* 4  And instead of writing every cycle on your own,you can use some built-in features built into JS to run through
+* 5. a code snippet multiple times until some condition is met or until some data is exhausted
+* 6. We will use (conditional statement, if statement,conditional expressions<bollean values and operators)
+* 7. Loops in JS
+* 8.
+*
+* */
+
+/*
+* CONDITIONAL CODE EXECUTION
+* 1. Assuming you have a function and you have two code snippets that could execute
+* 2. Example you either add two numbers or you subtract two numbers. You do that in the same function
+* 3. Of course you can write two separate functions but even then. you might want to call one of the
+* the two functions based on some condition (This is called conditional statement)
+* 4.You may have some program where you either want to run option A,so want to add two numbers or you
+* want to subtract two numbers (Here you use IF STATEMENT)
+* 5.IF-STATEMENT you specifiy a condition that must be met and a condition is in the end just a boolean value
+*
+*
+* USING IF STATEMENT:
+* 1.With the ADD,SUBT,MULTIPLY,DIVIDE in the BASIC of JS we learnt we have a lots of code duplications
+* 2. We always start by getting the entered number #
+* 3. Then we set the initial result that always exactly the same
+* 4. Then we have our calculation which is always different
+* 5. Then however we again just write the output or write to the log
+* 6. Yes, we do pass different info in there but  actually the only info that is different is the operator we use (-)(+)(/)(*) or the
+* description of the operator (ADD)(MULTIPLY)(DIVIDE)(SUBTRACT)
+* 7. We put a new function EX:
+*   Function calculateResult(calculationType)
+*   {
+*             const enteredNumber = getUserNumberInput();
+               const initialResult = currentResult;
+                let mathOperator;
+                if(calculationType === 'ADD'){ //we perform calculation based on the calculation type we getting
+                  currentResult += enteredNumber;
+                  mathOperator = '+';
+
+                 }else{
+                     currentResult -= enteredNumber;
+                     mathOperator = '-';
+                  }
+
+                //currentResult += enteredNumber;
+                createAndWriteOutput('+', initialResult, enteredNumber )
+                 writeToLog(calculationType,initialResult,enteredNumber,currentResult);
+
+*
+*   }
+*
+* Then bring in the code we have in the add function but here it will be written in more flexible way.
+* Here this will expect a parameter
+* - calculation Type and expect this to be a STRING that describes the type of calculation
+* Now you can add the if-statement in it
 * */
