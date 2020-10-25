@@ -47,9 +47,11 @@ function writeToLog(operationIdentifier,prevResult,operateNumber,newResult){
 
 /*******************************************************************************/
 function calculateResult(calculationType) {
-
+    const enteredNumber = getUserNumberInput();
     if (calculationType !=='ADD' && calculationType !== 'SUBTRACT' &&
-        calculationType !== 'MULTIPLY' && calculationType !=='DIVIDE')
+        calculationType !== 'MULTIPLY' && calculationType !=='DIVIDE' ||
+         /*enteredNumber === 0*/ !enteredNumber
+        ) //this means that when the user enters zero  return value and dont proceed to execute.
     {
         return; //this means if the conditions is not what we support below ,then return right away. Dont execute
     }
@@ -58,7 +60,7 @@ function calculateResult(calculationType) {
     /*if (calculationType || 'ADD' || calculationType || 'SUBTRACT' &&
         calculationType || 'MULTIPLY' && calculationType || 'DIVIDE')
     {*/
-        const enteredNumber = getUserNumberInput();
+       /* const enteredNumber = getUserNumberInput();*/
         const initialResult = currentResult;
         let mathOperator;
         if(calculationType === 'ADD'){ //we perform calculation based on the calculation type we getting
