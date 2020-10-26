@@ -128,20 +128,76 @@
 * */
 
   //3.
-  let chosenMaxLife = 100; //1.
+
   const ATTACK_VALUE = 10;
   const STRONG_ATTACK_VALUE = 17;
   const MONSTER_ATTACK_VALUE = 14;
+  const HEAL_VALUE =20;
 
+  const enteredValue = prompt('Maximum Life for you and the monster.', '100');
+let chosenMaxLife = parseInt(enteredValue); //1.
+
+if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
+   chosenMaxLife = 100;
+
+}
+
+  /*let chosenMaxLife = 100; //1.*/
   /*let chosenMaxLife =1;*/
 
   let currentMonsterHealth = chosenMaxLife;//6
   let currentPlayerHealth = chosenMaxLife;//7
+   let hasBonusLife = true;
+
     adjustHealthBars(chosenMaxLife); //3.0
 
+    function reset(){
+     currentMonsterHealth = chosenMaxLife;
+     currentPlayerHealth= chosenMaxLife;
+     resetGame(chosenMaxLife);
+
+    }
+
+    function endRound(){
+        const initialPlayerHealth = currentPlayerHealth;
+        const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);//9
+        currentPlayerHealth -= playerDamage;//10
+
+         if (currentPlayerHealth <=0 && hasBonusLife){
+             hasBonusLife = false;
+             removeBonusLife();
+             currentPlayerHealth = initialPlayerHealth;
+             setPlayerHealth(initialPlayerHealth);
+             alert("You would be dead but the bonus Life saved you...!!!");
+
+         }
+        //11
+        if(currentMonsterHealth <=0 && currentPlayerHealth > 0){ //we checking if the monster helth is smaller or equal to zero or if the monster won.
+            //yOU MIGHT THINK we have to add else block but NO. Because if we haven't won, if the monster health is not below zero,then we lost
+            alert('You won!');
+            //reset();
+
+        }else if (currentPlayerHealth <=0 && currentMonsterHealth > 0){ //here it indicate it USER ddidnt win then the MONSTER DID in this condition
+
+            alert('You have Lost'); //Player loses if Monster Health is above 0.
+            //reset();
+        }
+
+            //when we do this it will be wrong because the attack handler executes for every click
+            // So the else will only execute whenever neither of the two conditions is met and that most of the times be the case
+        //else is not wrong but for this scenerio it's wrong .Rather let's check ELSE IF
+        else if (currentPlayerHealth <=0 && currentMonsterHealth <= 0 ){
+            alert('You have a draw');
+            //reset();
+        }
+        if (currentMonsterHealth <= 0 || currentPlayerHealth <=0)
+           {
+               reset();
+             }
+    }
 
     //3rd function
-    function attachMonster(mode){
+    function attackMonster(mode){
           let maxDamage;
       if (mode === 'ATTACK'){
        maxDamage = ATTACK_VALUE;
@@ -153,7 +209,9 @@
 
       const damage = dealMonsterDamage(maxDamage); //6
       currentMonsterHealth -= damage;  //8
-      const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);//9
+
+        endRound();
+      /*const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);//9
       currentPlayerHealth -= playerDamage;//10
 
       //11
@@ -172,14 +230,14 @@
       else if (currentPlayerHealth <=0 && currentMonsterHealth <= 0 ){
         alert('You have a draw');
       }
-
+*/
 
 
     }
 
     function attackHandler(){ //05
 
-      attachMonster('ATTACK')
+      attackMonster('ATTACK')
 
      /* const damage = dealMonsterDamage(ATTACK_VALUE); //6
         currentMonsterHealth -= damage;  //8
@@ -205,8 +263,10 @@
 */
     }
 
+
+    //This is cause strong attack on the Monster
      function strongAttackHandler(){
-      attachMonster('STRONG_ATTACK');
+      attackMonster('STRONG_ATTACK');
 
        /*const damage = dealMonsterDamage(STRONG_ATTACK_VALUE);
        currentMonsterHealth -= damage;
@@ -227,8 +287,27 @@
 
      }
 
+     function  healPlayerHandler(){
+
+        let healValue ;
+
+        if (currentPlayerHealth>= chosenMaxLife -HEAL_VALUE){
+            alert("You cant heal to more than your max initial health ");
+            healValue = chosenMaxLife - currentPlayerHealth;
+
+        }else
+        {
+            healValue = HEAL_VALUE;
+        }
+      increasePlayerHealth(HEAL_VALUE);
+      currentPlayerHealth += HEAL_VALUE;
+      endRound();
+
+
+     }
    attackBtn.addEventListener('click', attackHandler); //4
    strongAttackBtn.addEventListener('click',strongAttackHandler);
+   healBtn.addEventListener('click',healPlayerHandler)
 
    /*
    *  Adding STRONG ATTACK
