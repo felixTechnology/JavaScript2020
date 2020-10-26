@@ -133,3 +133,12 @@ outputResult(currentResult, errorMessage);
 
 
 /****************************************************Splitting across multiple Lines**********************************/
+
+/****************************************************Functions**********************************/
+
+function greetUser(name){
+    alert(`hi` + name);
+}
+
+greetUser(' Felix Ackuayi ')
+/****************************************************End Functions**********************************/
