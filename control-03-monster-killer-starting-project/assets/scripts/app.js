@@ -134,8 +134,18 @@
   const MONSTER_ATTACK_VALUE = 14;
   const HEAL_VALUE =20;
 
+  const MODE_ATTACK = 'ATTACK'; //MODE_ATTACK = 0;
+  const MODE_STRONG_ATTACK = 'STRONG_ATTACK'; //MODE_STRONG_ATTACK = 1
+
+  const  LOG_EVENT_PLAYER_ATTACK = 'PLAYER_ATTACK';
+  const  LOG_EVENT_PLAYER_STRONG_ATTACK = 'PLAYER_STRONG_ATTACK';
+  const  LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACK';
+  const  LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
+  const  LOG_EVENT_GAME_OVER = 'GAME_OVER';
+
   const enteredValue = prompt('Maximum Life for you and the monster.', '100');
 let chosenMaxLife = parseInt(enteredValue); //1.
+let battleLog = [];
 
 if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
    chosenMaxLife = 100;
@@ -149,7 +159,72 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
   let currentPlayerHealth = chosenMaxLife;//7
    let hasBonusLife = true;
 
+
+
     adjustHealthBars(chosenMaxLife); //3.0
+
+   function writeToLog(ev,val,monsterHealth,playerHealth){
+      //let logEntry;
+       let logEntry = {
+           event: ev,
+           value: val,
+           finalMonsterHealth: monsterHealth,
+           finalPlayerHealth: playerHealth
+
+       };
+       if (ev === LOG_EVENT_PLAYER_ATTACK){
+           logEntry.target = 'MONSTER';
+           /*logEntry = {
+               event: ev,
+               value: val,
+               target: 'MONSTER',
+               finalMonsterHealth: monsterHealth,
+               finalPlayerHealth: playerHealth
+           };*/
+          // battleLog.push(logEntry);
+       }else if(ev === LOG_EVENT_PLAYER_STRONG_ATTACK){
+           logEntry = {
+               event: ev,
+               value: val,
+               target: 'MONSTER',
+               finalMonsterHealth: monsterHealth,
+               finalPlayerHealth: playerHealth
+           };
+          // battleLog.push(logEntry);
+       }else if (ev === LOG_EVENT_MONSTER_ATTACK){
+           logEntry = {
+               event: ev,
+               value: val,
+               target: 'PLAYER',
+               finalMonsterHealth: monsterHealth,
+               finalPlayerHealth: playerHealth
+           };
+           //battleLog.push(logEntry);
+       }else if (ev === LOG_EVENT_PLAYER_HEAL){
+
+           logEntry = {
+               event: ev,
+               value: val,
+               target: 'PLAYER',
+               finalMonsterHealth: monsterHealth,
+               finalPlayerHealth: playerHealth
+           };
+           //battleLog.push(logEntry);
+
+       } else if (ev === LOG_EVENT_GAME_OVER){
+
+           logEntry = {
+               event: ev,
+               value: val,
+               finalMonsterHealth: monsterHealth,
+               finalPlayerHealth: playerHealth
+           };
+           //battleLog.push(logEntry);
+
+       }
+       battleLog.push(logEntry);
+
+   }
 
     function reset(){
      currentMonsterHealth = chosenMaxLife;
@@ -162,6 +237,8 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
         const initialPlayerHealth = currentPlayerHealth;
         const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);//9
         currentPlayerHealth -= playerDamage;//10
+
+        writeToLog(LOG_EVENT_MONSTER_ATTACK,playerDamage, currentMonsterHealth,currentPlayerHealth);
 
          if (currentPlayerHealth <=0 && hasBonusLife){
              hasBonusLife = false;
@@ -176,11 +253,15 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
             //yOU MIGHT THINK we have to add else block but NO. Because if we haven't won, if the monster health is not below zero,then we lost
             alert('You won!');
             //reset();
+            writeToLog(LOG_EVENT_GAME_OVER,'PLAYER WON', currentMonsterHealth,currentPlayerHealth);
+
 
         }else if (currentPlayerHealth <=0 && currentMonsterHealth > 0){ //here it indicate it USER ddidnt win then the MONSTER DID in this condition
 
             alert('You have Lost'); //Player loses if Monster Health is above 0.
             //reset();
+            writeToLog(LOG_EVENT_GAME_OVER,'MONSTER WON', currentMonsterHealth,currentPlayerHealth);
+
         }
 
             //when we do this it will be wrong because the attack handler executes for every click
@@ -189,6 +270,9 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
         else if (currentPlayerHealth <=0 && currentMonsterHealth <= 0 ){
             alert('You have a draw');
             //reset();
+
+            writeToLog(LOG_EVENT_GAME_OVER,'A DRAW', currentMonsterHealth,currentPlayerHealth);
+
         }
         if (currentMonsterHealth <= 0 || currentPlayerHealth <=0)
            {
@@ -199,16 +283,24 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
     //3rd function
     function attackMonster(mode){
           let maxDamage;
-      if (mode === 'ATTACK'){
+          let logEvent;
+      /*if (mode === 'ATTACK'){*/
+        if (mode === MODE_ATTACK){
        maxDamage = ATTACK_VALUE;
-      } else if (mode === 'STRONG_ATTACK') {
+       logEvent = LOG_EVENT_PLAYER_ATTACK;
+      } /*else if (mode === 'STRONG_ATTACK')*/
+        else if (mode === MODE_STRONG_ATTACK)
+        {
 
         maxDamage = STRONG_ATTACK_VALUE;
+        logEvent = LOG_EVENT_PLAYER_STRONG_ATTACK;
       }
 
 
       const damage = dealMonsterDamage(maxDamage); //6
       currentMonsterHealth -= damage;  //8
+        writeToLog(logEvent,damage, currentMonsterHealth,currentPlayerHealth);
+
 
         endRound();
       /*const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);//9
@@ -301,13 +393,20 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
         }
       increasePlayerHealth(HEAL_VALUE);
       currentPlayerHealth += HEAL_VALUE;
-      endRound();
+         writeToLog(LOG_EVENT_PLAYER_HEAL,healValue, currentMonsterHealth,currentPlayerHealth);
+
+         endRound();
 
 
      }
+
+     function  printLogHandler(){
+       console.log(battleLog);
+     }
    attackBtn.addEventListener('click', attackHandler); //4
    strongAttackBtn.addEventListener('click',strongAttackHandler);
-   healBtn.addEventListener('click',healPlayerHandler)
+   healBtn.addEventListener('click',healPlayerHandler);
+   logBtn.addEventListener('click', printLogHandler);
 
    /*
    *  Adding STRONG ATTACK
