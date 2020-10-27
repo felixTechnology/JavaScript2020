@@ -172,15 +172,70 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
            finalPlayerHealth: playerHealth
 
        };
-       if (ev === LOG_EVENT_PLAYER_ATTACK){
+
+       //By default this look for equality
+       switch (ev) {
+
+           case LOG_EVENT_PLAYER_ATTACK:
+               logEntry.target = 'MONSTER';
+
+               break;
+
+           case LOG_EVENT_PLAYER_STRONG_ATTACK:
+               logEntry = {
+                   event: ev,
+                   value: val,
+                   target: 'MONSTER',
+                   finalMonsterHealth: monsterHealth,
+                   finalPlayerHealth: playerHealth
+               };
+
+               break
+
+           case LOG_EVENT_MONSTER_ATTACK:
+
+               logEntry = {
+                   event: ev,
+                   value: val,
+                   target: 'PLAYER',
+                   finalMonsterHealth: monsterHealth,
+                   finalPlayerHealth: playerHealth
+               };
+
+               break;
+
+           case LOG_EVENT_PLAYER_HEAL:
+               logEntry = {
+                   event: ev,
+                   value: val,
+                   target: 'PLAYER',
+                   finalMonsterHealth: monsterHealth,
+                   finalPlayerHealth: playerHealth
+               };
+               break;
+
+           case LOG_EVENT_GAME_OVER:
+
+               logEntry = {
+                   event: ev,
+                   value: val,
+                   finalMonsterHealth: monsterHealth,
+                   finalPlayerHealth: playerHealth
+               };
+               break;
+
+           default: logEntry = {};
+
+       }
+       /*if (ev === LOG_EVENT_PLAYER_ATTACK){
            logEntry.target = 'MONSTER';
-           /*logEntry = {
+           /!*logEntry = {
                event: ev,
                value: val,
                target: 'MONSTER',
                finalMonsterHealth: monsterHealth,
                finalPlayerHealth: playerHealth
-           };*/
+           };*!/
           // battleLog.push(logEntry);
        }else if(ev === LOG_EVENT_PLAYER_STRONG_ATTACK){
            logEntry = {
@@ -221,7 +276,7 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
            };
            //battleLog.push(logEntry);
 
-       }
+       }*/
        battleLog.push(logEntry);
 
    }
@@ -282,20 +337,24 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
 
     //3rd function
     function attackMonster(mode){
-          let maxDamage;
-          let logEvent;
+          /*let maxDamage;*/
+          /*let logEvent;*/
+          const logEvent = mode === MODE_ATTACK ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_PLAYER_STRONG_ATTACK;
+          //am using ternanery operation here in place of the IF-STATEMENT:
+          //checking if MODE is equal to MODE_TTACK, If TRUE separated by question mark Otherwise separated by colon
+        const maxDamage = mode === MODE_ATTACK ? ATTACK_VALUE: STRONG_ATTACK_VALUE;
       /*if (mode === 'ATTACK'){*/
-        if (mode === MODE_ATTACK){
+      /*  if (mode === MODE_ATTACK){
        maxDamage = ATTACK_VALUE;
        logEvent = LOG_EVENT_PLAYER_ATTACK;
-      } /*else if (mode === 'STRONG_ATTACK')*/
+      } /!*else if (mode === 'STRONG_ATTACK')*!/
         else if (mode === MODE_STRONG_ATTACK)
         {
 
         maxDamage = STRONG_ATTACK_VALUE;
         logEvent = LOG_EVENT_PLAYER_STRONG_ATTACK;
       }
-
+*/
 
       const damage = dealMonsterDamage(maxDamage); //6
       currentMonsterHealth -= damage;  //8
@@ -396,12 +455,92 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
          writeToLog(LOG_EVENT_PLAYER_HEAL,healValue, currentMonsterHealth,currentPlayerHealth);
 
          endRound();
-
-
      }
 
      function  printLogHandler(){
-       console.log(battleLog);
+        // for (let  i =0; i < 3; i = i = i + 1);
+      /* for (let  i =0; i < 3; i++){
+           console.log('-----------------');
+       }*/
+
+      /*   for (let i=10; i > 0; i--){
+             console.log(`i =  ${i}` );
+
+             //or console.log(i);
+         }*/
+
+        /* for (let i = 0; i < battleLog.length; i++){
+             console.log(battleLog[i]);
+         }*/
+
+          /* let i = 0;
+         for (const logInfo of battleLog){
+
+             console.log(logInfo);
+             console.log(i)
+             i++;
+         }*/
+
+        /* let j=0;
+         while (j < 3){
+             console.log('---------------');
+             j++;
+         }*/
+/*******************************************************/
+         /*let k=3;
+         do {
+              console.log(k);
+              k++;
+         }while (k < 3) */ //This will print 3 and not continue because the condition will first print before incrementing
+
+
+        /* let m = 3;
+         while(m < 3){
+             console.log(m);
+             j++; //this won't print anything because the condition is not met
+         }*/
+  /*******************************************************/
+
+        /* let j=0;
+         while (j < 3) {
+             console.log(j);
+             j++;
+         }*/
+/*******************************************************/
+
+         let randomNumbers = [];
+         let finished = false;
+         while(!finished){
+             const rndNumbers = Math.random();
+             if (rndNumbers > 0.5){
+                 finished = true;
+                 console.log(randomNumbers);
+             }
+         }
+/*******************************************************/
+
+
+        /* let i = 0;
+         for (const logInfo of battleLog){
+
+             console.log(`#${i}`);
+
+             for (const key in logInfo){
+               /!*  console.log(key);
+                 console.log(logInfo[key]);*!/
+                 console.log(`${key}=>${logInfo[key]}`);
+             }
+             i++;
+         }
+*/
+
+
+
+
+
+
+
+             console.log(battleLog);
      }
    attackBtn.addEventListener('click', attackHandler); //4
    strongAttackBtn.addEventListener('click',strongAttackHandler);
