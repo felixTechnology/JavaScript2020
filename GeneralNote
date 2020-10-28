@@ -357,3 +357,64 @@ See these examples:
 'ab' > 'aa' // true
 'a' > 'B' // true
 'a' > 'b' // false
+
+
+
+
+/**********************************************************
+for (let i=0; i<5; i++){
+    console.log(i);
+}
+VM108:2 0
+VM108:2 1
+VM108:2 2
+VM108:2 3
+VM108:2 4
+undefined
+for (let i=0; i<5; i++){
+    if(i === 3){
+    console.log(i);
+}
+VM139:4 Uncaught SyntaxError: Unexpected end of input
+for (let i=0; i<5; i++){
+    if(i === 3){
+    break;
+    }
+    console.log(i);
+}
+VM185:5 0
+VM185:5 1
+VM185:5 2
+undefined
+for (let i=0; i<5; i++){
+    if(i === 3){
+    continue;
+    }
+    console.log(i);
+}
+VM205:5 0
+VM205:5 1
+VM205:5 2
+VM205:5 4
+undefined
+for (let i=0; i<5; i++){
+    if(i === 4){
+    continue;
+    }
+    console.log(i);
+}
+VM213:5 0
+VM213:5 1
+VM213:5 2
+VM213:5 3
+undefined
+
+for (let i=0; i<5; i++){
+    if(i === 0){
+    continue;
+    }
+    console.log(i);
+}
+VM221:5 1
+VM221:5 2
+VM221:5 3

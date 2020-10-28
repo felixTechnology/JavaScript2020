@@ -143,14 +143,46 @@
   const  LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
   const  LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
-  const enteredValue = prompt('Maximum Life for you and the monster.', '100');
-let chosenMaxLife = parseInt(enteredValue); //1.
+ /* const enteredValue = prompt('Maximum Life for you and the monster.', '100');
+let chosenMaxLife = parseInt(enteredValue); //1.*/
 let battleLog = [];
+let lastLoggedEntry;
+/************************************Video 107*********************************/
+function getMaxLifeValues() {
+    const enteredValue = prompt('Maximum Life for you and the monster.', '100');
+    /*let chosenMaxLife = parseInt(enteredValue); //1.*/
+    const parsedValue = parseInt(enteredValue); //1.
 
-if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
+    /*if (isNaN(chosenMaxLife)|| chosenMaxLife <=0)*/
+    if (isNaN(parsedValue)|| parsedValue <=0){
+        //chosenMaxLife = 100;
+        throw {message: 'Invalid user input, not a number'}
+
+    }
+    return parsedValue;
+}
+
+let chosenMaxLife;
+try {
+
+    let chosenMaxLife = getMaxLifeValues();
+}catch (error) {
+    console.log(error);
+    chosenMaxLife =100;
+    alert('You have entered something wrong,default value of 100 was used');
+
+}finally {
+    
+}
+/*
+let chosenMaxLife = getMaxLifeValues();*/
+/************************************Video 107*********************************/
+
+
+/*if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
    chosenMaxLife = 100;
 
-}
+}*/
 
   /*let chosenMaxLife = 100; //1.*/
   /*let chosenMaxLife =1;*/
@@ -459,9 +491,9 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
 
      function  printLogHandler(){
         // for (let  i =0; i < 3; i = i = i + 1);
-      /* for (let  i =0; i < 3; i++){
+      for (let  i =0; i < 3; i++){
            console.log('-----------------');
-       }*/
+       }
 
       /*   for (let i=10; i > 0; i--){
              console.log(`i =  ${i}` );
@@ -487,12 +519,42 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
              j++;
          }*/
 /*******************************************************/
-         /*let k=3;
+         /*let k=0;
          do {
-              console.log(k);
+              console.log('outer ',k);
+              /!*******video 105*********!/
+                  for (let l =0; l < 5; l++){
+                      //2nd example
+                      if (l===3){//this means when it get to 3 break dont print 3 and beyond
+                          break;
+                      }//2nd example
+                      console.log('inner',l)
+                  }
+             /!*********video 105*******!/
               k++;
-         }while (k < 3) */ //This will print 3 and not continue because the condition will first print before incrementing
+         }while (k < 3)  //This will print 3 and not continue because the condition will first print before incrementing
+*/
 
+
+         /**********************************************/
+         let k=0;
+         outWhile: do{
+             console.log('outer ',k);
+             /*******video 105*********/
+            innerFor: for (let l =0; l < 5; l++){
+                 //2nd example
+                 if (l===3){//this means when it get to 3 break dont print 3 and beyond
+                     //break outWhile;
+                     continue outWhile;
+
+                 }//2nd example
+                 console.log('inner',l)
+             }
+             /*********video 105*******/
+             k++;
+         }while (k < 3)  //This will print 3 and not continue because the condition will first print before incrementing
+
+         /********************************************/
 
         /* let m = 3;
          while(m < 3){
@@ -508,7 +570,7 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
          }*/
 /*******************************************************/
 
-         let randomNumbers = [];
+     /*    let randomNumbers = [];
          let finished = false;
          while(!finished){
              const rndNumbers = Math.random();
@@ -516,31 +578,27 @@ if (isNaN(chosenMaxLife)|| chosenMaxLife <=0){
                  finished = true;
                  console.log(randomNumbers);
              }
-         }
+         }*/
 /*******************************************************/
 
 
-        /* let i = 0;
+         let i = 0;
          for (const logInfo of battleLog){
+                if (!lastLoggedEntry && lastLoggedEntry !==0 || lastLoggedEntry < i){
+                    console.log(`#${i}`);
 
-             console.log(`#${i}`);
+                    for (const key in logInfo){
+                        /*console.log(key);
+                         console.log(logInfo[key]);*/
+                        console.log(`${key}=>${logInfo[key]}`);
+                    }
+                    lastLoggedEntry = i;
+                    break;
+                }
 
-             for (const key in logInfo){
-               /!*  console.log(key);
-                 console.log(logInfo[key]);*!/
-                 console.log(`${key}=>${logInfo[key]}`);
-             }
              i++;
          }
-*/
-
-
-
-
-
-
-
-             console.log(battleLog);
+            //console.log(battleLog);
      }
    attackBtn.addEventListener('click', attackHandler); //4
    strongAttackBtn.addEventListener('click',strongAttackHandler);
