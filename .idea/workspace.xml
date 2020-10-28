@@ -22,7 +22,6 @@
     <list default="true" id="bad3fbe7-d453-47c2-80fc-2d4fd6ff028e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GeneralNote" beforeDir="false" afterPath="$PROJECT_DIR$/GeneralNote" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control-03-monster-killer-starting-project/assets/scripts/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/control-03-monster-killer-starting-project/assets/scripts/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +71,7 @@
       <workItem from="1603342308054" duration="18224000" />
       <workItem from="1603492042191" duration="54098000" />
       <workItem from="1603662107936" duration="21515000" />
-      <workItem from="1603833781537" duration="11291000" />
+      <workItem from="1603833781537" duration="12244000" />
     </task>
     <servers />
   </component>

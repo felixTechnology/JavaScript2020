@@ -418,3 +418,39 @@ for (let i=0; i<5; i++){
 VM221:5 1
 VM221:5 2
 VM221:5 3
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+Useful Resources & Links
+Attached, you find the source code for this section. The snapshots are also attached to individual lectures throughout this module (i.e. the lectures to which each snapshot belongs).
+
+---
+
+The following resources may be helpful.
+
+Control Structures (MDN): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling
+
+JavaScript Loops (MDN): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
+
+Resources for this lecture
+control-01-starting-project.zip
+control-02-added-if.zip
+control-03-monster-killer-starting-project.zip
+control-04-attack-function.zip
+control-05-attack-if-else-if.zip
+control-06-strong-attack.zip
+control-07-heal-functionality.zip
+control-08-bonus-life-functionality.zip
+control-09-reset-logic.zip
+control-10-player-set-initial-health.zip
+control-11-added-logging.zip
+control-12-switch-case.zip
+control-13-for-loop.zip
+control-14-for-of-loop.zip
+control-15-for-in.zip
+control-16-while.zip
+control-17-break-continue.zip
+control-18-labeled-statements.zip
+control-19-try-catch-finished.zip
+Fullscreen
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
