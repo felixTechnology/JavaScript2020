@@ -172,7 +172,7 @@ try {
     alert('You have entered something wrong,default value of 100 was used');
 
 }finally {
-    
+
 }
 /*
 let chosenMaxLife = getMaxLifeValues();*/
